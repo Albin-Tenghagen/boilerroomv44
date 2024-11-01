@@ -56,9 +56,15 @@ function addNewObj(id, description, finished){
 
 // function finishedTask(){
 
+
+//find with filter of matching id and then we can remove it 
+
 // }
 
 // removeTask(){
+
+// använd splice för o ta bort.
+
 
 // }
 
