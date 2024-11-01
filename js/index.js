@@ -10,9 +10,45 @@ console.log(myArray);
 
 // function addNewTask(){
 
+function addNewObj(id, description, finished){ 
+    let newObject = Object.create(myObject);
+    newObject.id = id;
+    newObject.description = description;
+    newObject.finished = finished;
+    myArray.push(newObject);
+    
+    return;
+    }
+    
+    addNewObj("ny köplista", "handla mjölk1", false)
+    addNewObj("test", "testdesc..", false)
+    addNewObj("spela fotboll", "klockan 15", false)
+    addNewObj("spela tennis", "klockan 17", false)
+    saveAndDisplayTasks("spela cricket", "klockan 20", false)
+    
+    
+
 // }
 
 // function showTaskList() {
+    function saveAndDisplayTasks(id, description, finished) { 
+        // Add a new entry with calculation details to the history
+        myArray.push({ id, description, finished }); // changes the original array rather than creating a new one.
+        
+        const taskContainer = document.getElementById("taskItems");
+        // taskContainer.innerHTML = ''; 
+        
+       
+        for (let i = 0; i < myArray.length; i++) {
+            const newObject = myArray[i];
+            const listItem = document.createElement("li");
+            listItem.textContent = `Task: ${newObject.id} ${newObject.description} ${newObject.finished}`;
+            taskContainer.appendChild(listItem);
+            
+        }
+    }
+
+    
     
 // }
 
@@ -30,28 +66,8 @@ console.log(myArray);
 
 // myArray.push(myObject);
 
-function objAdd(id, description, finished){
 
-    myObject.id = id;
-    myObject.description = description;
-    myObject.finished = finished;
-    return
-}
 // function that creates a new Object with with myObject as the the "template"
-function addNewObj(id, description, finished){ 
-let newObject = Object.create(myObject);
-newObject.id = id;
-newObject.description = description;
-newObject.finished = finished;
-// console.log(newObject);
-myArray.push(newObject);
-
-return;
-}
-
-addNewObj("ny köplista", "handla mjölk1", false)
-addNewObj("test", "testdesc..", false)
-addNewObj("spela fotboll", "klockan 15", false)
 
 
 
