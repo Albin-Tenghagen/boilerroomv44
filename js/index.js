@@ -4,7 +4,7 @@ let myArray = []; // initialize an empty array
 
 let myObject = { id: " ", description: " ", finished: false }; // create an object with 3 static keys and 3 dynamic values.
 
-myArray.push(myObject); // add the object to the array
+myArray.push(); // add the object to the array
 
 console.log(myArray);
 
@@ -24,7 +24,9 @@ function addNewObj(id, description, finished){
     addNewObj("test", "testdesc..", false)
     addNewObj("spela fotboll", "klockan 15", false)
     addNewObj("spela tennis", "klockan 17", false)
+    addNewObj("spela tennis", "klockan 17", false)
     saveAndDisplayTasks("spela cricket", "klockan 20", false)
+    
     
     
 
@@ -44,7 +46,7 @@ function addNewObj(id, description, finished){
             const listItem = document.createElement("li");
             listItem.textContent = `Task: ${newObject.id} ${newObject.description} ${newObject.finished}`;
             taskContainer.appendChild(listItem);
-            
+            // return listItem.textContent = `Task: ${newObject.id} ${newObject.description} ${newObject.finished}`;
         }
     }
 
@@ -80,3 +82,17 @@ function addNewObj(id, description, finished){
 
 // console.log(objAdd);
 // let userChoice = prompt('Ja vill ha nytt id')
+
+
+///////////// BOILERROOOM SCANDIC ^ 
+
+
+
+
+
+
+
+
+
+
+
