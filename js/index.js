@@ -25,7 +25,7 @@ function addNewObj(id, description, finished){
     addNewObj("spela fotboll", "klockan 15", false)
     addNewObj("spela tennis", "klockan 17", false)
     addNewObj("spela tennis", "klockan 17", false)
-    saveAndDisplayTasks("spela cricket", "klockan 20", false)
+    saveAndDisplayTasks()
     
     
     
@@ -33,9 +33,9 @@ function addNewObj(id, description, finished){
 // }
 
 // function showTaskList() {
-    function saveAndDisplayTasks(id, description, finished) { 
+    function saveAndDisplayTasks() { 
         // Add a new entry with calculation details to the history
-        myArray.push({ id, description, finished }); // changes the original array rather than creating a new one.
+        // myArray.push({ id, description, finished }); // changes the original array rather than creating a new one.
         
         const taskContainer = document.getElementById("taskItems");
         // taskContainer.innerHTML = ''; 
