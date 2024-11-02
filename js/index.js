@@ -2,7 +2,12 @@ console.log('Javascript file loaded correctly')
 
 let myArray = []; // initialize an empty array
 
-let myObject = { id: " ", description: " ", finished: false }; // create an object with 3 static keys and 3 dynamic values.
+let myObject = {
+     id: " ",
+     description: " ",
+     finished: false 
+    }; 
+    // create an object with 3 static keys and 3 dynamic values.
 
 myArray.push(); // add the object to the array
 
@@ -57,7 +62,15 @@ function addNewObj(id, description, finished){
 // function finishedTask(){
 
 
-//find with filter of matching id and then we can remove it 
+//find with filter() of matching id and then we can remove it 
+
+
+const filter_myArray = myArray.filter(function(task) {
+    return task.id === "spela tennis";  // Use `===` for strict equality
+});
+
+console.log(filter_myArray);
+
 
 // }
 
