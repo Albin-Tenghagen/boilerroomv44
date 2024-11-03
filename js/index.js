@@ -13,6 +13,9 @@ myArray.push(); // add the object to the array
 
 console.log(myArray);
 
+
+
+
 // function addNewTask(){
 
 function addNewObj(id, description, finished){ 
@@ -39,6 +42,7 @@ function addNewObj(id, description, finished){
 // }
 
 // function showTaskList() {
+
     function saveAndDisplayTasks() { 
         // Add a new entry with calculation details to the history
         // myArray.push({ id, description, finished }); // changes the original array rather than creating a new one.
@@ -50,7 +54,7 @@ function addNewObj(id, description, finished){
         for (let i = 0; i < myArray.length; i++) {
             const newObject = myArray[i];
             const listItem = document.createElement("li");
-            listItem.textContent = `Task: ${newObject.id} ${newObject.description} ${newObject.finished} `;
+            listItem.textContent = `Task: ${newObject.id} ${newObject.description}  `;
             taskContainer.appendChild(listItem);
             
             if (newObject.finished === true) {
@@ -82,7 +86,6 @@ function addNewObj(id, description, finished){
 
 objIndex = myArray.findIndex(obj => obj.id == "spela tennis");
 
-
 console.log(myArray[objIndex]); //before updated object.
 myArray[objIndex].finished = true;
 
@@ -97,11 +100,10 @@ saveAndDisplayTasks();
 
 // removeTask(){
 
-// filter_myArray.splice(1, 1,);
-// console.log(filter_myArray); 
+myArray.splice(1, 1,);
+console.log(myArray); 
 
 
-// if === 4; remove from array index 3.
 
 
 // använd splice för o ta bort.
