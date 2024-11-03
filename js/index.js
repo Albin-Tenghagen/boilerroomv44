@@ -29,9 +29,9 @@ function addNewObj(id, description, finished){
     addNewObj("test", "testdesc..", false)
     addNewObj("spela fotboll", "klockan 15", false)
     addNewObj("spela tennis", "klockan 17", false)
-    addNewObj("spela tennis", "klockan 17", false)
-    addNewObj("Träffa vänner", "på lördag", false)
-    saveAndDisplayTasks()
+    addNewObj("spela tennis", "klockan 20", false)
+    addNewObj("Träffa vänner", "på lördag", )
+    // saveAndDisplayTasks()  --- anropas senare i koden, för det är där den ska vara.
     
     
     
@@ -52,6 +52,11 @@ function addNewObj(id, description, finished){
             const listItem = document.createElement("li");
             listItem.textContent = `Task: ${newObject.id} ${newObject.description} ${newObject.finished} `;
             taskContainer.appendChild(listItem);
+            
+            if (newObject.finished === true) {
+                listItem.style.textDecoration = 'line-through';
+            }
+
             // return listItem.textContent = `Task: ${newObject.id} ${newObject.description} ${newObject.finished}`;
         }
     }
@@ -63,14 +68,28 @@ function addNewObj(id, description, finished){
 // function finishedTask(){
 
 
-//find with filter() of matching id and then we can remove it 
+//find with filter() of matching id and then we can manipulate it to boolean:true which is finished task.
+// if task is finished with boolean true then it should be "genomstrucket" in the web, so it's noticable.
 
 
-const filter_myArray = myArray.filter(function(task) {
-    return task.id === "spela tennis";  // Use `===` for strict equality
-});
 
-console.log(filter_myArray);
+
+// const filter_myArray = myArray.filter(function(task) {
+//     return task.id === "spela tennis";  // Use `===` for strict equality
+// });
+
+// console.log(filter_myArray);
+
+objIndex = myArray.findIndex(obj => obj.id == "spela tennis");
+
+
+console.log(myArray[objIndex]); //before updated object.
+myArray[objIndex].finished = true;
+
+
+console.log(myArray[objIndex]); // after updated object.
+console.log(myArray);
+saveAndDisplayTasks();
 
 
 
@@ -78,8 +97,9 @@ console.log(filter_myArray);
 
 // removeTask(){
 
-filter_myArray.splice(0, 1,);
-console.log(filter_myArray);
+// filter_myArray.splice(1, 1,);
+// console.log(filter_myArray); 
+
 
 // if === 4; remove from array index 3.
 
