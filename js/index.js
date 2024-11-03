@@ -30,6 +30,7 @@ function addNewObj(id, description, finished){
     addNewObj("spela fotboll", "klockan 15", false)
     addNewObj("spela tennis", "klockan 17", false)
     addNewObj("spela tennis", "klockan 17", false)
+    addNewObj("Träffa vänner", "på lördag", false)
     saveAndDisplayTasks()
     
     
@@ -49,7 +50,7 @@ function addNewObj(id, description, finished){
         for (let i = 0; i < myArray.length; i++) {
             const newObject = myArray[i];
             const listItem = document.createElement("li");
-            listItem.textContent = `Task: ${newObject.id} ${newObject.description} ${newObject.finished}`;
+            listItem.textContent = `Task: ${newObject.id} ${newObject.description} ${newObject.finished} `;
             taskContainer.appendChild(listItem);
             // return listItem.textContent = `Task: ${newObject.id} ${newObject.description} ${newObject.finished}`;
         }
@@ -72,9 +73,16 @@ const filter_myArray = myArray.filter(function(task) {
 console.log(filter_myArray);
 
 
+
 // }
 
 // removeTask(){
+
+filter_myArray.splice(0, 1,);
+console.log(filter_myArray);
+
+// if === 4; remove from array index 3.
+
 
 // använd splice för o ta bort.
 
@@ -83,6 +91,8 @@ console.log(filter_myArray);
 
 // closeProgram(){
     
+// while not writing "close" the program continues. so a while loop.
+
 // }
 
 // myArray.push(myObject);
