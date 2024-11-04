@@ -3,9 +3,8 @@ console.log('Javascript file loaded correctly')
 let myArray = []; // initialize an empty array
 
 let myObject = {
-     id: " ",
      description: " ",
-     finished: false 
+     finished: undefined 
     }; 
     // create an object with 3 static keys and 3 dynamic values.
 
@@ -18,25 +17,13 @@ console.log(myArray);
 
 // function addNewTask(){
 
-function addNewObj(id, description, finished){ 
+function addNewObj( description, finished){ 
     let newObject = Object.create(myObject);
-    newObject.id = id;
     newObject.description = description;
     newObject.finished = finished;
     myArray.push(newObject);
-    
     return;
     }
-    
-    // addNewObj("ny köplista", "handla mjölk1", false)
-    // addNewObj("test", "testdesc..", false)
-    // addNewObj("spela fotboll", "klockan 15", false)
-    // addNewObj("spela tennis", "klockan 17", false)
-    // addNewObj("spela tennis", "klockan 20", false)
-    // addNewObj("Träffa vänner", "på lördag", )
-    // saveAndDisplayTasks()  --- anropas senare i koden, för det är där den ska vara.
-    
-    
     
 
 // }
@@ -54,7 +41,7 @@ function addNewObj(id, description, finished){
         for (let i = 0; i < myArray.length; i++) {
             const newObject = myArray[i];
             const listItem = document.createElement("li");
-            listItem.textContent = `Task:  Headline ${newObject.id} description ${newObject.description}  `;
+            listItem.textContent = `Task: ${newObject.description}  `;
             taskContainer.appendChild(listItem);
             
             if (newObject.finished === true) {
@@ -71,81 +58,26 @@ function addNewObj(id, description, finished){
 
 // function finishedTask(){
 
-
-//find with filter() of matching id and then we can manipulate it to boolean:true which is finished task.
-// if task is finished with boolean true then it should be "genomstrucket" in the web, so it's noticable.
-
-
-
-
-// const filter_myArray = myArray.filter(function(task) {
-//     return task.id === "spela tennis";  // Use `===` for strict equality
-// });
-
-// console.log(filter_myArray);
 function finishTask() {
-objIndex = myArray.findIndex(obj => obj.id == prompt('Enter Task Name'));
+    // Prompt user to enter a task number starting from 1
+    let index = parseInt(prompt('Enter Task ID')) - 1;
+  
+    // Check if the calculated index is within the array bounds
+    if (index >= 0 && index < myArray.length) {
+      myArray[index].finished = true; // Mark the task as finished
+  
+      console.log("Updated task:", myArray[index]); // Display the updated object
+    } else {
+      alert("Invalid task number. Please enter a valid task number.");
+    }
+  
+    console.log("All tasks:", myArray); // Display the entire array
+  }
 
-console.log(myArray[objIndex]); //before updated object.
-myArray[objIndex].finished = true;
-
-
-console.log(myArray[objIndex]); // after updated object.
-console.log(myArray);
-}
-// finishTask();
-// saveAndDisplayTasks();
-
-// }
-
-// removeTask(){
-
-
-
-
-// function removeTaskById() {
-//     // const indexInput = prompt("Enter ID of task:");
-//     // const index = parseInt(indexInput, 10) -1; 
-
-//     // myArray.splice(index, 1); // 
-//     console.log(`Task at index ${index} removed.`);
-// }
-
-// removeTaskById(); 
 console.log(myArray);
 
 
-// använd splice för o ta bort.
-
-
-// }
-
-// closeProgram(){
-    
-// while not writing "close" the program continues. so a while loop.
-
-// }
-
-// myArray.push(myObject);
-
-
-// function that creates a new Object with with myObject as the the "template"
-
-
-
-// let newObject = Object.assign(myObject, objAdd)
-// console.log(newObject);
-
-
-// // objAdd("uppgift 2", "handla ägg", false)
-
-
-// console.log(objAdd);
-// let userChoice = prompt('Ja vill ha nytt id')
-
-
-///////////// BOILERROOOM SCANDIC ^ 
-
+///////////// TEAM 2.1
 
 
 

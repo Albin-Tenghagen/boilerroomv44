@@ -6,8 +6,10 @@ function manipulateTaskList(button){
 
  switch (userChoice) {
      case 1:
-         addNewObj(prompt('Add task name'), prompt('Add description'))
+         addNewObj(prompt('Add task name'))
          saveAndDisplayTasks();
+         console.log(myArray);
+         
          break;
     case 2: 
         console.log("Mark a task as finished");
