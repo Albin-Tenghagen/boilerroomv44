@@ -13,9 +13,10 @@ function manipulateTaskList(button){
          
          break;
     case 2: 
+        let finishedTaskField = Number(document.getElementById("finishTask").value);
         console.log("Mark a task as finished");
-        finishTask();
-        saveAndDisplayTasks();
+        finishTask(finishedTaskField);
+        saveAndDisplayTasks(finishedTaskField);
         break;
     case 3:
         const indexInput = prompt("Enter ID of task:");

@@ -13,7 +13,7 @@ myArray.push(); // add the object to the array
 console.log(myArray);
 
 let inputField = document.getElementById("addTask").value;
-
+let finishedTaskField = document.getElementById("finishTask").value
 
 // function addNewTask(){
 
@@ -60,7 +60,7 @@ function addNewObj(description, finished){
 
 function finishTask() {
     // Prompt user to enter a task number starting from 1
-    let index = parseInt(prompt('Enter Task ID')) - 1;
+       let index = Number(finishedTaskField) - 1;
   
     // Check if the calculated index is within the array bounds
     if (index >= 0 && index < myArray.length) {
