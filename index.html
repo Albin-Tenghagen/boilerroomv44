@@ -7,13 +7,18 @@
     
 </head>
 <body>
+    <button type="button" class="taskListManipulaton" onclick="manipulateTaskList(this)" value="1">Add task</button>
+    <button type="button" class="taskListManipulaton" onclick="manipulateTaskList(this)" value="2">finish task</button>
+    <button type="button" class="taskListManipulaton" onclick="manipulateTaskList(this)" value="3">Remove task</button>
+    <button type="button" class="taskListManipulaton" onclick="manipulateTaskList(this)" value="4">Show all tasks</button>
+    <button type="button" class="taskListManipulaton" onclick="manipulateTaskList(this)" value="5">Clear all Tasks</button>
     
     <div id="taskItemContainer">
         <h3>Task list:</h3>
         <ol id="taskItems"></ol>
     </div>
 
-
+    <script src="js/user-interaction.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>

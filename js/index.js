@@ -28,12 +28,12 @@ function addNewObj(id, description, finished){
     return;
     }
     
-    addNewObj("ny köplista", "handla mjölk1", false)
-    addNewObj("test", "testdesc..", false)
-    addNewObj("spela fotboll", "klockan 15", false)
-    addNewObj("spela tennis", "klockan 17", false)
-    addNewObj("spela tennis", "klockan 20", false)
-    addNewObj("Träffa vänner", "på lördag", )
+    // addNewObj("ny köplista", "handla mjölk1", false)
+    // addNewObj("test", "testdesc..", false)
+    // addNewObj("spela fotboll", "klockan 15", false)
+    // addNewObj("spela tennis", "klockan 17", false)
+    // addNewObj("spela tennis", "klockan 20", false)
+    // addNewObj("Träffa vänner", "på lördag", )
     // saveAndDisplayTasks()  --- anropas senare i koden, för det är där den ska vara.
     
     
@@ -54,7 +54,7 @@ function addNewObj(id, description, finished){
         for (let i = 0; i < myArray.length; i++) {
             const newObject = myArray[i];
             const listItem = document.createElement("li");
-            listItem.textContent = `Task: ${newObject.id} ${newObject.description}  `;
+            listItem.textContent = `Task:  Headline ${newObject.id} description ${newObject.description}  `;
             taskContainer.appendChild(listItem);
             
             if (newObject.finished === true) {
@@ -83,8 +83,8 @@ function addNewObj(id, description, finished){
 // });
 
 // console.log(filter_myArray);
-
-objIndex = myArray.findIndex(obj => obj.id == "spela tennis");
+function finishTask() {
+objIndex = myArray.findIndex(obj => obj.id == prompt('Enter Task Name'));
 
 console.log(myArray[objIndex]); //before updated object.
 myArray[objIndex].finished = true;
@@ -92,79 +92,26 @@ myArray[objIndex].finished = true;
 
 console.log(myArray[objIndex]); // after updated object.
 console.log(myArray);
-saveAndDisplayTasks();
-
-
+}
+// finishTask();
+// saveAndDisplayTasks();
 
 // }
 
 // removeTask(){
 
 
-// function removeTask(){
-//     let userRemoveTask = prompt('Pick a task to take of the list, use a number please')
-
-//     if userRemoveTask == myArray[i] {
-//         myArray.splice()
-//     }
-//     myArray.splice(1, 1,);
-//     console.log(myArray); 
-// }
-
-
-//  function removeTask(){
-//     let removeByIndex = prompt("Enter the index you wish to remove: ");
-//     let index = myArray.indexOf(removeByIndex);
-//     if(index > -1){ // HERE!!!
-//         myArray.splice(index, 1);
-
-//     }
-//     else{
-//         alert("id is not in the system");
-//     }
-// }
-
-// let remove = function() {
-//     let removeID = parseInt(prompt("enter index of array to remove"));
-//     let index = myArray.indexOf(removeID);
-//     if (index > -1){
-//         myArray.splice(index, 1);
-//         showArray();
-//     }
-//     else{
-//         alert("index not found")
-//     }
-// }
-// remove();
 
 
 // function removeTaskById() {
-//     const taskId = prompt("Enter ID:");
-//     if (!taskId) {
-//         console.log("No ID entred.");
-//         return;
-//     }
-//     const index = myArray.indexOf(task => task.id === taskId);
-//     if (index !== -1) {
-//         myArray.splice(index, 1); // 
-//         console.log(`id "${taskId}"  removed.`);
-//         saveAndDisplayTasks(); 
-//     } else {
-//         console.log(`id "${taskId}" not found.`);
-//     }
+//     // const indexInput = prompt("Enter ID of task:");
+//     // const index = parseInt(indexInput, 10) -1; 
+
+//     // myArray.splice(index, 1); // 
+//     console.log(`Task at index ${index} removed.`);
 // }
 
-
-function removeTaskById() {
-    const indexInput = prompt("Enter index:");
-    const index = parseInt(indexInput, 10); 
-
-    myArray.splice(index, 1); // 
-    console.log(`Task at index ${index} removed.`);
-    saveAndDisplayTasks(); 
-}
-
-removeTaskById();
+// removeTaskById(); 
 console.log(myArray);
 
 
