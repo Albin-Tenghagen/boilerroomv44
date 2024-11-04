@@ -4,9 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
     
 </head>
 <body>
+
+
+    <form>
+        <label for="addTask">Enter task:</label>
+        <input type="text" id="addTask" name="addTask">
+        <br>
+        <label for="addTask">Finish task:</label>
+        <input type="number" id="finishTask" name="finishTask">
+        <br>
+        <label for="addTask">Remove Task:</label>
+        <input type="number" id="removeTask" name="removeTask">
+        <br>
+        <br>
+    </form>
+
+
     <button type="button" class="taskListManipulaton" onclick="manipulateTaskList(this)" value="1">Add task</button>
     <button type="button" class="taskListManipulaton" onclick="manipulateTaskList(this)" value="2">finish task</button>
     <button type="button" class="taskListManipulaton" onclick="manipulateTaskList(this)" value="3">Remove task</button>

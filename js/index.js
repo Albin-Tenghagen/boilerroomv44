@@ -12,12 +12,12 @@ myArray.push(); // add the object to the array
 
 console.log(myArray);
 
-
+let inputField = document.getElementById("addTask").value;
 
 
 // function addNewTask(){
 
-function addNewObj( description, finished){ 
+function addNewObj(description, finished){ 
     let newObject = Object.create(myObject);
     newObject.description = description;
     newObject.finished = finished;

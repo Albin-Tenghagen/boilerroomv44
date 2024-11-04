@@ -6,7 +6,8 @@ function manipulateTaskList(button){
 
  switch (userChoice) {
      case 1:
-         addNewObj(prompt('Add task name'))
+         let inputField = document.getElementById("addTask").value;
+         addNewObj(inputField);
          saveAndDisplayTasks();
          console.log(myArray);
          
