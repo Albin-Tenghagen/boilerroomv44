@@ -78,9 +78,7 @@ console.log(myArray);
 
 
 ///////////// TEAM 2.1
-
-
-
+// Den behövs inte egentligen, såvid vi inte vill visa det i consol loggen med knappen, ser de live!
 
 
 

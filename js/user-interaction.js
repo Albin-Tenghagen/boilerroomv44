@@ -31,7 +31,8 @@ function manipulateTaskList(button){
         break;
     case 4:
         console.log("Show all tasks");
-        saveAndDisplayTasks();
+        console.log(myArray);//Display the list(myArray) in console, if show all tasks is chosen. 
+        // yes den fungerar då. men index börjar på 0. i console log. så kan bli missleading för user-interaction.men kanske det inte är poängen.
         break;
     case 5:
         myArray.length = 0;
