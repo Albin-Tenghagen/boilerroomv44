@@ -58,21 +58,20 @@ function addNewObj(description, finished){
 
 // function finishedTask(){
 
-function finishTask() {
-    // Prompt user to enter a task number starting from 1
-       let index = Number(finishedTaskField) - 1;
-  
-    // Check if the calculated index is within the array bounds
-    if (index >= 0 && index < myArray.length) {
+function finishTask(index) {
+  // Adjust index to be zero-based
+  index = Number(index) - 1;
+
+  // Check if the index is within the array bounds
+  if (index >= 0 && index < myArray.length) {
       myArray[index].finished = true; // Mark the task as finished
-  
       console.log("Updated task:", myArray[index]); // Display the updated object
-    } else {
+  } else {
       alert("Invalid task number. Please enter a valid task number.");
-    }
-  
-    console.log("All tasks:", myArray); // Display the entire array
   }
+
+  console.log("All tasks:", myArray); // Display the entire array
+}
 
 console.log(myArray);
 
