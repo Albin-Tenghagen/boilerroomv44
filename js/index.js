@@ -37,13 +37,20 @@ function addNewObj(description, finished){
         const taskContainer = document.getElementById("taskItems");
         taskContainer.innerHTML = ''; 
         
-       
+       // skapade buttons bredvid list item för att enklare kunna Finish och delete Tasks.
         for (let i = 0; i < myArray.length; i++) {
             const newObject = myArray[i];
             const listItem = document.createElement("li");
-            listItem.textContent = `Task: ${newObject.description}  `;
+            const buttonFinish = document.createElement ("button")
+            const buttonDelete = document.createElement ("button")
+            listItem.textContent = `Task: ${newObject.description} `;
+            buttonDelete.textContent = "Delete"
+            buttonFinish.textContent = "Finish"
+            buttonFinish.setAttribute ("onCLick", `finishTask(${i})`);
+            listItem.appendChild(buttonFinish,)
+            listItem.appendChild(buttonDelete)
             taskContainer.appendChild(listItem);
-            
+
             if (newObject.finished === true) {
                 listItem.style.textDecoration = 'line-through';
             }
@@ -58,9 +65,9 @@ function addNewObj(description, finished){
 
 // function finishedTask(){
 
-function finishTask() {
+function finishTask(index) {
     // Prompt user to enter a task number starting from 1
-    let index = parseInt(prompt('Enter Task ID')) - 1;
+    // let index = parseInt(prompt('Enter Task ID')) - 1;
   
     // Check if the calculated index is within the array bounds
     if (index >= 0 && index < myArray.length) {
@@ -72,6 +79,7 @@ function finishTask() {
     }
   
     console.log("All tasks:", myArray); // Display the entire array
+    saveAndDisplayTasks();
   }
 
 console.log(myArray);
@@ -80,7 +88,7 @@ console.log(myArray);
 ///////////// TEAM 2.1
 // Den behövs inte egentligen, såvid vi inte vill visa det i consol loggen med knappen, ser de live!
 
-
+// 
 
 
 
