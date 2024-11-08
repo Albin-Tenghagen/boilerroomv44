@@ -1,24 +1,29 @@
 let taskButton = document.getElementById("addTaskBtn")
 taskButton.setAttribute("id", "taskButton")
+
 let inputFieldTask = document.getElementById("addTask")
 inputFieldTask.setAttribute("id", "inputFieldTask")
 
-let taskArray = []
+let taskArray = [];
+
 let taskObject = {
+    id: " ",
     description: " ",
     finished: undefined
 };
 
-//
+//* Creates a main element that acts as a parentNode 
 let taskListContainer = document.createElement("main")
 taskListContainer.setAttribute("id", "taskListContainer")
 document.body.appendChild(taskListContainer)
 
+//* creates the headline for the main Node
 let containerHeadLine = document.createElement("h3")
 containerHeadLine.innerHTML = "Task list"
 containerHeadLine.setAttribute("id", "containerheader")
 taskListContainer.appendChild(containerHeadLine)
 
+//*creates the ordered list 
 let taskList = document.createElement("ol")
 taskList.setAttribute("id", "taskList")
 taskListContainer.appendChild(taskList)
@@ -40,10 +45,14 @@ taskButton.addEventListener("click", function(){
 //*Function that creates an object in taskArray basen on taskbutton.Eventlistener function
 function objectCreation(){
     let newObject = Object.create(taskObject);
+    // newObject.id =  
+    for (let i = 0; i <= taskArray.length; i++){
+        newObject.id = i + 1
+    }
     newObject.description = inputFieldTask.value;
     newObject.finished = undefined;
     taskArray.push(newObject);
-    console.log(taskArray)
+    console.log(newObject)
     return;
 }
 //*-----------------------------------------------------------
