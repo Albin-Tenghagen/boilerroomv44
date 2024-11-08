@@ -63,16 +63,16 @@ taskButton.addEventListener("click", function(){
 })
 
 //*Function that creates an object in taskArray basen on taskbutton.Eventlistener function
-function objectCreation(){
+function objectCreation(listItem){
     let newObject = Object.create(taskObject);
-     
-    for (let i = 0; i <= taskArray.length; i++){
-        newObject.id = i + 1
-    }
+    newObject.id = taskArray.length + 1
+    // for (let i = 0; i <= taskArray.length; i++){
+    //     newObject.id = i + 1
+    // }
     newObject.description = inputFieldTask.value;
     newObject.finished = undefined;
     
-    newObject.listItem(listItem)
+    newObject.listItem = listItem
 
     taskArray.push(newObject);
     console.log(newObject)
@@ -82,12 +82,13 @@ function objectCreation(){
 
 taskList.addEventListener("click", function(event){ 
     if (event.target && event.target.classList.contains("finishbutton")) {    
-        const listItem = event.target.ParentElement;
-        const finishedTask = taskArray.find(finishedTask => finishedTask.listItem === listItem)
+        const listItem = event.target.parentElement;
+        const finishedTask = taskArray.find(task => task.listItem === listItem)
     
         if(finishedTask) {
             finishedTask.finished = true;
             finishedList.appendChild(listItem)
+            
             event.target.remove();
         }
     }
