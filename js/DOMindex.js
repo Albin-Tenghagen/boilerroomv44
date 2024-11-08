@@ -45,7 +45,7 @@ finishedTaskContainer.appendChild(finishedHeadLine)
 let finishedList = document.createElement("ol")
 finishedList.setAttribute("id", "finishedList")
 finishedTaskContainer.appendChild(finishedList)
-
+//-----------------------------------------------------------------
 
 //-----------------------------------------------------------------
 taskButton.addEventListener("click", function(){
@@ -61,7 +61,9 @@ taskButton.addEventListener("click", function(){
     
     objectCreation(listItem)
 })
+//-----------------------------------------------------------------
 
+//-----------------------------------------------------------------
 //*Function that creates an object in taskArray basen on taskbutton.Eventlistener function
 function objectCreation(listItem){
     let newObject = Object.create(taskObject);
@@ -80,6 +82,7 @@ function objectCreation(listItem){
 }
 //*-----------------------------------------------------------
 
+//-----------------------------------------------------------------
 taskList.addEventListener("click", function(event){ 
     if (event.target && event.target.classList.contains("finishbutton")) {    
         const listItem = event.target.parentElement;
@@ -93,4 +96,4 @@ taskList.addEventListener("click", function(event){
         }
     }
 })
-
+//-----------------------------------------------------------------
