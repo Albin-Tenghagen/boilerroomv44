@@ -12,6 +12,7 @@ let taskObject = {
     finished: undefined
 };
 
+//----------------------Task list-----------------------------------
 //* Creates a main element that acts as a parentNode 
 let taskListContainer = document.createElement("main")
 taskListContainer.setAttribute("id", "taskListContainer")
@@ -27,7 +28,26 @@ taskListContainer.appendChild(containerHeadLine)
 let taskList = document.createElement("ol")
 taskList.setAttribute("id", "taskList")
 taskListContainer.appendChild(taskList)
+//-----------------------------------------------------------------
 
+//-----------------------Finished list-----------------------------
+let finishedTaskContainer = document.createElement("aside")
+finishedTaskContainer.setAttribute("id", "finishedTaskContainer")
+document.body.appendChild(finishedTaskContainer)
+
+//* creates the headline for the main Node
+let finishedHeadLine = document.createElement("h3")
+finishedHeadLine.innerHTML = "Finished tasks"
+finishedHeadLine.setAttribute("id", "finishedheader")
+finishedTaskContainer.appendChild(finishedHeadLine)
+
+//*creates the ordered list 
+let finishedList = document.createElement("ol")
+finishedList.setAttribute("id", "finishedList")
+finishedTaskContainer.appendChild(finishedList)
+
+
+//-----------------------------------------------------------------
 taskButton.addEventListener("click", function(){
     let listItem = document.createElement("li")
     listItem.setAttribute("class", "listItem")
@@ -35,8 +55,8 @@ taskButton.addEventListener("click", function(){
     taskList.appendChild(listItem)
     
     let finishButton = document.createElement("button")
-    finishButton.innerHTML = "Finish Task"
-    finishButton.setAttribute("id", "finishbutton")
+    finishButton.innerHTML = "Finish"
+    finishButton.setAttribute("class", "finishbutton")
     listItem.appendChild(finishButton)
     
     objectCreation()
@@ -45,7 +65,7 @@ taskButton.addEventListener("click", function(){
 //*Function that creates an object in taskArray basen on taskbutton.Eventlistener function
 function objectCreation(){
     let newObject = Object.create(taskObject);
-    // newObject.id =  
+     
     for (let i = 0; i <= taskArray.length; i++){
         newObject.id = i + 1
     }
@@ -56,3 +76,11 @@ function objectCreation(){
     return;
 }
 //*-----------------------------------------------------------
+
+taskList.addEventListener("click", function(event){ 
+    if (event.target && event.target.classList.contains("finishbutton")) {    
+        newObject.id = true;
+    
+    }
+})
+
