@@ -42,7 +42,7 @@ finishedHeadLine.setAttribute("id", "finishedheader")
 finishedTaskContainer.appendChild(finishedHeadLine)
 
 //*creates the ordered list 
-let finishedList = document.createElement("ol")
+let finishedList = document.createElement("ul")
 finishedList.setAttribute("id", "finishedList")
 finishedTaskContainer.appendChild(finishedList)
 //-----------------------------------------------------------------
@@ -91,9 +91,17 @@ taskList.addEventListener("click", function(event){
         if(finishedTask) {
             finishedTask.finished = true;
             finishedList.appendChild(listItem)
-            
             event.target.remove();
+            let regretButton = document.createElement("button")
+            regretButton.innerHTML = "Unfinish"
+            listItem.appendChild(regretButton)
+            let deleteButton = document.createElement("button")
+            deleteButton.innerHTML = "Delete task"
+            listItem.appendChild(deleteButton)
+            console.log(finishedTask)
         }
     }
 })
+//-----------------------------------------------------------------
+
 //-----------------------------------------------------------------
