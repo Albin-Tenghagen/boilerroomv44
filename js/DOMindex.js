@@ -9,7 +9,7 @@ let taskArray = [];
 let taskObject = {
     id: " ",
     description: " ",
-    finished: undefined
+    finished: undefined 
 };
 
 //----------------------Task list-----------------------------------
@@ -25,7 +25,7 @@ containerHeadLine.setAttribute("id", "containerheader")
 taskListContainer.appendChild(containerHeadLine)
 
 //*creates the ordered list 
-let taskList = document.createElement("ol")
+let taskList = document.createElement("ol") 
 taskList.setAttribute("id", "taskList")
 taskListContainer.appendChild(taskList)
 //-----------------------------------------------------------------
