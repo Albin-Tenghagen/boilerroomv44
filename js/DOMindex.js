@@ -92,11 +92,15 @@ taskList.addEventListener("click", function(event){
             finishedTask.finished = true;
             finishedList.appendChild(listItem)
             event.target.remove();
+            
             let regretButton = document.createElement("button")
             regretButton.innerHTML = "Unfinish"
+            regretButton.setAttribute("class", "regretButton")
             listItem.appendChild(regretButton)
+            
             let deleteButton = document.createElement("button")
             deleteButton.innerHTML = "Delete task"
+            deleteButton.setAttribute("class", "deleteButton")
             listItem.appendChild(deleteButton)
             console.log(finishedTask)
         }
