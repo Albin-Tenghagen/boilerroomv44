@@ -69,7 +69,8 @@ taskButton.addEventListener("click", function(){
     finishButton.setAttribute("class", "finishbutton")
     listItem.appendChild(finishButton)
     
-    objectCreation(listItem)
+    objectCreation(listItem);
+    
     }
 })
 //-----------------------------------------------------------------
@@ -138,16 +139,17 @@ finishedList.addEventListener("click", function(event){
         listItem.remove();
     }
 
+//-----------------------Unfinish(Undo) button-----------------------------
     if (event.target && event.target.classList.contains("regretButton")) {
         if(task){
             task.finished = false;
             taskList.appendChild(listItem);
         }
-        // Remove "Undo" and "Delete task" buttons
-        event.target.nextSibling.remove(); // Remove the "Delete task" button
-        event.target.remove(); // Remove the "Unfinish" button
+        // Remove the undo and delet task buttons
+        event.target.nextSibling.remove(); // Remove the deelete task button
+        event.target.remove(); // Remove the unfinish button
         
-        // Re-add the "Finish" button
+        // Re-add the finish button
         let finishButton = document.createElement("button");
         finishButton.innerHTML = "Finish";
         finishButton.setAttribute("class", "finishbutton");
