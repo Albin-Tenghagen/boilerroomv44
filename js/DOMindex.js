@@ -49,6 +49,16 @@ finishedTaskContainer.appendChild(finishedList)
 
 //-----------------------------------------------------------------
 taskButton.addEventListener("click", function(){
+    if(inputFieldTask.value.trim() === "") {
+        console.log("empty task")
+        inputFieldTask.setAttribute("placeholder", "You have to name your task")
+        inputFieldTask.style.animation = "shake 0.5s ease";
+
+        inputFieldTask.addEventListener("animationend", () => {
+            inputFieldTask.style.animation = "";
+        });
+        return;
+    } else {
     let listItem = document.createElement("li")
     listItem.setAttribute("class", "listItem")
     listItem.innerText = inputFieldTask.value;
@@ -60,6 +70,7 @@ taskButton.addEventListener("click", function(){
     listItem.appendChild(finishButton)
     
     objectCreation(listItem)
+    }
 })
 //-----------------------------------------------------------------
 
