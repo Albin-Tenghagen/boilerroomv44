@@ -9,7 +9,7 @@ let taskArray = [];
 let taskObject = {
     id: " ",
     description: " ",
-    finished: undefined 
+    finished: undefined
 };
 
 //----------------------Task list-----------------------------------
@@ -25,7 +25,7 @@ containerHeadLine.setAttribute("id", "containerheader")
 taskListContainer.appendChild(containerHeadLine)
 
 //*creates the ordered list 
-let taskList = document.createElement("ol") 
+let taskList = document.createElement("ol")
 taskList.setAttribute("id", "taskList")
 taskListContainer.appendChild(taskList)
 //-----------------------------------------------------------------
@@ -87,7 +87,7 @@ taskList.addEventListener("click", function(event){
     if (event.target && event.target.classList.contains("finishbutton")) {    
         const listItem = event.target.parentElement;
         const finishedTask = taskArray.find(task => task.listItem === listItem)
-    
+        
         if(finishedTask) {
             finishedTask.finished = true;
             finishedList.appendChild(listItem)
@@ -106,6 +106,33 @@ taskList.addEventListener("click", function(event){
         }
     }
 })
-//-----------------------------------------------------------------
 
-//-----------------------------------------------------------------
+finishedList.addEventListener("click", function(event){
+    const listItem = event.target.parentElement;
+    const task = taskArray.find(task => task.listItem === listItem)
+    
+    if (event.target && event.target.classList.contains("deleteButton")){
+        
+        if(task){
+            const taskIndex = taskArray.indexOf(task)
+            if (taskIndex > -1) taskArray.splice(taskIndex, 1)
+        }
+        listItem.remove();
+    }
+
+    if (event.target && event.target.classList.contains("regretButton")) {
+        if(task){
+            task.finished = false;
+            taskList.appendChild(listItem);
+        }
+        // Remove "Undo" and "Delete task" buttons
+        event.target.nextSibling.remove(); // Remove the "Delete task" button
+        event.target.remove(); // Remove the "Unfinish" button
+        
+        // Re-add the "Finish" button
+        let finishButton = document.createElement("button");
+        finishButton.innerHTML = "Finish";
+        finishButton.setAttribute("class", "finishbutton");
+        listItem.appendChild(finishButton);
+    }
+})
