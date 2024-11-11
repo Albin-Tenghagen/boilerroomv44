@@ -74,6 +74,13 @@ taskButton.addEventListener("click", function(){
 })
 //-----------------------------------------------------------------
 
+
+inputFieldTask.addEventListener("keydown", function(event){
+    if (event.key === "Enter") {
+        event.preventDefault();
+        taskButton.click()
+    }
+})
 //-----------------------------------------------------------------
 //*Function that creates an object in taskArray basen on taskbutton.Eventlistener function
 function objectCreation(listItem){
