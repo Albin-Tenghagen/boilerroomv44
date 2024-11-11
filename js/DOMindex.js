@@ -49,6 +49,16 @@ finishedTaskContainer.appendChild(finishedList)
 
 //-----------------------------------------------------------------
 taskButton.addEventListener("click", function(){
+    if(inputFieldTask.value.trim() === "") {
+        console.log("empty task")
+        inputFieldTask.setAttribute("placeholder", "You have to name your task")
+        inputFieldTask.style.animation = "shake 0.5s ease";
+
+        inputFieldTask.addEventListener("animationend", () => {
+            inputFieldTask.style.animation = "";
+        });
+        return;
+    } else {
     let listItem = document.createElement("li")
     listItem.setAttribute("class", "listItem")
     listItem.innerText = inputFieldTask.value;
@@ -60,6 +70,7 @@ taskButton.addEventListener("click", function(){
     listItem.appendChild(finishButton)
     
     objectCreation(listItem)
+    }
 })
 //-----------------------------------------------------------------
 
@@ -87,7 +98,7 @@ taskList.addEventListener("click", function(event){
     if (event.target && event.target.classList.contains("finishbutton")) {    
         const listItem = event.target.parentElement;
         const finishedTask = taskArray.find(task => task.listItem === listItem)
-    
+        
         if(finishedTask) {
             finishedTask.finished = true;
             finishedList.appendChild(listItem)
@@ -106,6 +117,24 @@ taskList.addEventListener("click", function(event){
         }
     }
 })
+
+finishedList.addEventListener("click", function(event){
+    const listItem = event.target.parentElement;
+    const deleteTask = taskArray.find(task => task.listItem === listItem)
+    
+    if (event.target && event.target.classList.contains("deleteButton")){
+        
+        if(deleteTask){
+            const taskIndex = taskArray.indexOf(deleteTask)
+            if (taskIndex > -1) taskArray.splice(taskIndex, 1)
+        }
+        listItem.remove();
+    }
+});
+
+
 //-----------------------------------------------------------------
 
 //-----------------------------------------------------------------
+
+
