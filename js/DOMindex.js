@@ -31,24 +31,26 @@ taskListContainer.appendChild(taskList)
 //-----------------------------------------------------------------
 
 //-----------------------Finished list-----------------------------
+//* creates the aside element that acts as a parent node
 let finishedTaskContainer = document.createElement("aside")
 finishedTaskContainer.setAttribute("id", "finishedTaskContainer")
 document.body.appendChild(finishedTaskContainer)
 
-//* creates the headline for the main Node
+//* creates the headline for the aside Node
 let finishedHeadLine = document.createElement("h3")
 finishedHeadLine.innerHTML = "Finished tasks"
 finishedHeadLine.setAttribute("id", "finishedheader")
 finishedTaskContainer.appendChild(finishedHeadLine)
 
-//*creates the ordered list 
+//*creates the unordered list 
 let finishedList = document.createElement("ul")
 finishedList.setAttribute("id", "finishedList")
 finishedTaskContainer.appendChild(finishedList)
 //-----------------------------------------------------------------
 
-//-----------------------------------------------------------------
+//----------------------------Add Task-----------------------------
 taskButton.addEventListener("click", function(){
+    //* This code checks to see if there is anything in the input field. If there is not, the input field shakes and then returns.
     if(inputFieldTask.value.trim() === "") {
         console.log("empty task")
         inputFieldTask.setAttribute("placeholder", "You have to name your task")
@@ -58,7 +60,9 @@ taskButton.addEventListener("click", function(){
             inputFieldTask.style.animation = "";
         });
         return;
+    //*------------------------------------------------------
     } else {
+    //* This creates a list item(task) with a button to finish said task, it also calls the objectCreation function
     let listItem = document.createElement("li")
     listItem.setAttribute("class", "listItem")
     listItem.innerText = inputFieldTask.value;
@@ -69,13 +73,14 @@ taskButton.addEventListener("click", function(){
     finishButton.setAttribute("class", "finishbutton")
     listItem.appendChild(finishButton)
     
-    objectCreation(listItem);
-    
+    objectCreation(listItem)
+    //*-----------------------------------------------------
     }
 })
 //-----------------------------------------------------------------
 
-
+//-----------------------------------------------------------------
+//* if the user presses enter, the site will not reload. but it will trigger the taskbuttonclick event and therefore create a task
 inputFieldTask.addEventListener("keydown", function(event){
     if (event.key === "Enter") {
         event.preventDefault();
@@ -83,13 +88,13 @@ inputFieldTask.addEventListener("keydown", function(event){
     }
 })
 //-----------------------------------------------------------------
-//*Function that creates an object in taskArray basen on taskbutton.Eventlistener function
+
+
+//-----------------------------------------------------------------
+//*Function that creates an object in taskArray basen on taskbutton.Eventlistener function, and pushes said object into the taskArray
 function objectCreation(listItem){
     let newObject = Object.create(taskObject);
     newObject.id = taskArray.length + 1
-    // for (let i = 0; i <= taskArray.length; i++){
-    //     newObject.id = i + 1
-    // }
     newObject.description = inputFieldTask.value;
     newObject.finished = undefined;
     
